@@ -5,5 +5,5 @@ export const ContainerGrid = styled.div`
   grid-template-columns: repeat(2, 470px);
   gap: 60px;
   justify-content: center;
-  margin-top: 30px;
+  margin: 50px 0;
 `

@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+import { cores } from '../../styles'
 
-export const Image = styled.header`
+export const Image = styled.footer`
   width: 100%;
-  height: 384px;
+  height: 300px;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 40px;
@@ -13,14 +14,18 @@ export const Image = styled.header`
     justify-content: center;
     flex-direction: column;
   }
-
-  img {
-    margin-bottom: 8rem;
-  }
 `
 
-export const Title = styled.h1`
-  font-weight: bold;
-  font-size: 36px;
+export const Description = styled.p`
+  font-size: 14px;
   text-align: center;
+`
+
+export const ContainerImg = styled.div`
+  margin: 3rem 0;
+
+  img {
+    margin-left: 8px;
+    cursor: pointer;
+  }
 `
