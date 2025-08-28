@@ -1,7 +1,7 @@
 class RestaurantsItens {
   id: number
   titulo: string
-  destacado?: boolean
+  destacado?: string
   tipo: string
   avaliacao: number
   descricao: string
@@ -14,7 +14,7 @@ class RestaurantsItens {
     avaliacao: number,
     descricao: string,
     capa: string,
-    destacado?: boolean
+    destacado?: string
   ) {
     this.id = id
     this.titulo = titulo

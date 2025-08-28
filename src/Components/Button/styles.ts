@@ -10,6 +10,8 @@ export const ButtonLink = styled.button`
   border: none;
   cursor: pointer;
   transition: ease-in-out 0.2s;
+  display: block;
+  margin-top: 12px;
 
   &:hover {
     background-color: ${cores.branco};

@@ -19,7 +19,7 @@ export const RestaurantsItens = styled.div`
 export const Description = styled.div`
   padding: 8px;
 
-  p {
+  span {
     margin: 12px 0;
   }
 `
@@ -45,9 +45,9 @@ export const Badge = styled.span<Props>`
   background-color: ${cores.vermelho};
   font-weight: 500;
   color: ${cores.branco};
-  padding: 2px;
+  padding: 5px;
   position: absolute;
   top: 6px;
 
-  ${(props) => (props.position === 'left' ? 'left: 240px;' : 'right: 10px;')}
+  ${(props) => (props.position === 'left' ? 'left: 225px;' : 'right: 10px;')}
 `

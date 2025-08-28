@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 
-export const Image = styled.header`
+type ImageProps = {
+  variant?: 'home' | 'restaurant'
+}
+
+export const Image = styled.header<ImageProps>`
   width: 100%;
-  height: 384px;
+  height: ${(props) => (props.variant === 'restaurant' ? '186px' : '384px')};
   background-repeat: no-repeat;
   background-size: cover;
   padding: 40px;
@@ -23,4 +27,14 @@ export const Title = styled.h1`
   font-weight: bold;
   font-size: 36px;
   text-align: center;
+`
+
+export const ContainerRestaurant = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  img {
+    margin: 0;
+  }
 `
