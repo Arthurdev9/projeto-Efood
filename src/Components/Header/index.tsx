@@ -1,7 +1,8 @@
-import { ContainerRestaurant, Image, Title } from './styles'
+import { ContainerRestaurant, Image, NavList, Title, NavLink } from './styles'
 
 import backgroundImg from '../../assets/images/fundo.png'
 import logo from '../../assets/images/logo (1).png'
+import { Link } from 'react-router-dom'
 
 type HeaderProps = {
   variant?: 'home' | 'restaurant'
@@ -39,9 +40,19 @@ const Header = ({
           style={{ backgroundImage: `url(${backgroundImg})` }}
         >
           <ContainerRestaurant>
-            <h3>Restaurantes</h3>
-            <img src={logo} alt="Efood" />
-            <h2>0 produtos no carrinho</h2>
+            <nav>
+              <NavList>
+                <li>
+                  <NavLink to="/">Restaurantes</NavLink>
+                </li>
+                <li>
+                  <img src={logo} alt="Efood" />
+                </li>
+                <li>
+                  <h2>0 produtos no carrinho</h2>
+                </li>
+              </NavList>
+            </nav>
           </ContainerRestaurant>
         </Image>
       )}

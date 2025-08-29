@@ -12,6 +12,8 @@ export const GlobalCss = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+    list-style: none;
+    text-decoration: none;
     color: ${cores.vermelho};
   }
 

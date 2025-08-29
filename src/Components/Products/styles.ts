@@ -43,20 +43,21 @@ export const ProductDescription = styled.p`
   line-height: 1.5;
 `
 
-export const AddButton = styled.button`
-  width: 100%;
-  padding: 12px;
-  background-color: ${cores.branco};
-  color: ${cores.vermelho};
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s ease;
+// export const AddButton = styled.button`
+//   width: 100%;
+//   padding: 12px;
+//   background-color: ${cores.branco};
+//   color: ${cores.vermelho};
+//   border: none;
+//   border-radius: 6px;
+//   border: 2px solid transparent;
+//   font-weight: bold;
+//   cursor: pointer;
+//   transition: 0.2s ease;
 
-  &:hover {
-    background-color: ${cores.vermelho};
-    color: ${cores.branco};
-    border: 2px solid ${cores.branco};
-  }
-`
+//   &:hover {
+//     background-color: ${cores.vermelho};
+//     color: ${cores.branco};
+//     border: 2px solid ${cores.branco};
+//   }
+// `

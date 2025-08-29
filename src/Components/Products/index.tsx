@@ -1,6 +1,6 @@
 import ProductsItens from '../../models/ProductsItens'
+import Button from '../Button'
 import {
-  AddButton,
   ProductCard,
   ProductDescription,
   ProductImage,
@@ -20,7 +20,9 @@ const Products = ({ products }: Props) => {
           <ProductImage src={product.foto} alt={product.nome} />
           <ProductTitle>{product.nome}</ProductTitle>
           <ProductDescription>{product.descricao}</ProductDescription>
-          <AddButton>Adicionar ao carrinho</AddButton>
+          <Button type="button" title="Adicionar ao carrinho">
+            Adicionar ao carrinho
+          </Button>
         </ProductCard>
       ))}
     </ProductsContainer>

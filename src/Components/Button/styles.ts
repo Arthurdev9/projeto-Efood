@@ -8,6 +8,7 @@ export const ButtonLink = styled.button`
   color: ${cores.branco};
   background-color: ${cores.vermelho};
   border: none;
+  border: 1px solid transparent;
   cursor: pointer;
   transition: ease-in-out 0.2s;
   display: block;
@@ -18,7 +19,6 @@ export const ButtonLink = styled.button`
     color: ${cores.vermelho};
     border: 1px solid ${cores.vermelho};
     transition: ease-in-out 0.2s;
-    position: absolute;
   }
 `
 
@@ -26,14 +26,16 @@ export const SecondaryButton = styled.button`
   font-size: 14px;
   font-weight: bold;
   padding: 8px;
+  border: 1px solid ${cores.vermelho};
   color: ${cores.vermelho};
   background-color: ${cores.branco};
+  cursor: pointer;
+  width: 100%;
 
   &:hover {
     background-color: ${cores.vermelho};
     color: ${cores.branco};
     border: 1px solid ${cores.branco};
     transition: ease-in-out 0.2s;
-    position: absolute;
   }
 `

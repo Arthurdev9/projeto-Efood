@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import estrela from '../../assets/images/estrela.png'
 import Button from '../Button'
 import {
@@ -31,6 +32,7 @@ const Restaurants = ({
   titulo,
   destacado
 }: Props) => {
+  const navigate = useNavigate()
   return (
     <RestaurantsItens>
       <img src={capa} alt={titulo} />
@@ -43,7 +45,11 @@ const Restaurants = ({
       </Title>
       <Description>
         <span>{descricao}</span>
-        <Button type="link" title="Saiba Mais">
+        <Button
+          onClick={() => navigate('/restaurante')}
+          type="link"
+          title="Saiba Mais"
+        >
           Saiba mais
         </Button>
       </Description>
