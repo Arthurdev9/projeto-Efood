@@ -1,72 +1,41 @@
+import { useParams } from 'react-router-dom'
 import ProductsItens from '../../models/ProductsItens'
 import Products from '../Products'
 import { Assessment, Banner, Type } from './styles'
+import { useEffect, useState } from 'react'
+import { ProductType, RestaurantsType } from '../../pages/Home'
 
-const productsData: ProductsItens[] = [
-  {
-    id: 1,
-    nome: 'Ravioli al Tartufo Nero',
-    descricao:
-      'O Ravioli al Tartufo Nero é um requintado prato de massa artesanal, que celebra os sabores ricos...',
-    foto: 'https://ebac-fake-api.vercel.app/efood/bella_tavola_italiana//1.webp',
-    preco: 89.9,
-    porcao: '3'
-  },
-  {
-    id: 2,
-    nome: 'Spaghetti Carbonara',
-    descricao:
-      'Spaghetti clássico com molho cremoso de ovos, queijo pecorino, pancetta e pimenta preta.',
-    foto: 'https://ebac-fake-api.vercel.app/efood/bella_tavola_italiana//1.webp',
-    preco: 65.0,
-    porcao: '3'
-  },
-  {
-    id: 3,
-    nome: 'Osso Buco alla Milanese',
-    descricao:
-      'Vitela cozida lentamente com vinho branco, legumes e gremolata, servido com risoto.',
-    foto: 'https://ebac-fake-api.vercel.app/efood/bella_tavola_italiana//1.webp',
-    preco: 112.0,
-    porcao: '3'
-  },
-  {
-    id: 4,
-    nome: 'Osso Buco alla Milanese',
-    descricao:
-      'Vitela cozida lentamente com vinho branco, legumes e gremolata, servido com risoto.',
-    foto: 'https://ebac-fake-api.vercel.app/efood/bella_tavola_italiana//1.webp',
-    preco: 112.0,
-    porcao: '3'
-  },
-  {
-    id: 5,
-    nome: 'Osso Buco alla Milanese',
-    descricao:
-      'Vitela cozida lentamente com vinho branco, legumes e gremolata, servido com risoto.',
-    foto: 'https://ebac-fake-api.vercel.app/efood/bella_tavola_italiana//1.webp',
-    preco: 112.0,
-    porcao: '3'
-  },
-  {
-    id: 6,
-    nome: 'Osso Buco alla Milanese',
-    descricao:
-      'Vitela cozida lentamente com vinho branco, legumes e gremolata, servido com risoto.',
-    foto: 'https://ebac-fake-api.vercel.app/efood/bella_tavola_italiana//1.webp',
-    preco: 112.0,
-    porcao: '3'
-  }
-]
+import star from '../../assets/images/estrela.png'
+
+type Product = {
+  cardapio: RestaurantsType[]
+}
 
 const Menu = () => {
+  const { id } = useParams()
+
+  const [productsData, setProductsData] = useState<RestaurantsType>()
+
+  useEffect(() => {
+    fetch(`https://ebac-fake-api.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((res) => setProductsData(res))
+  }, [])
+
+  if (!productsData) {
+    return <h3>Carregando...</h3>
+  }
+
   return (
     <div>
-      <Banner image="https://ebac-fake-api.vercel.app/efood/bella_tavola_italiana/capa.jpeg">
-        <Type>Italiana</Type>
-        <Assessment>Bella Tavola Italiana 4.7</Assessment>
+      <Banner image={productsData?.capa}>
+        <Type>{productsData?.tipo}</Type>
+        <Assessment>
+          {productsData?.titulo} {productsData?.avaliacao}
+          <img src={star} alt="Estrela" />
+        </Assessment>
       </Banner>
-      <Products products={productsData} />
+      {productsData && <Products products={productsData.cardapio} />}
     </div>
   )
 }

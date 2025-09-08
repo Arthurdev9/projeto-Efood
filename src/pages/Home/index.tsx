@@ -1,51 +1,37 @@
+import { useEffect, useState } from 'react'
 import Header from '../../Components/Header'
 import RestaurantsList from '../../Components/RestaurantsList'
 import RestaurantsItens from '../../models/RestaurantsItens'
 
-const restaurants: RestaurantsItens[] = [
-  {
-    id: 1,
-    titulo: 'Bella Tavola Italiana',
-    avaliacao: 4.7,
-    capa: 'https://ebac-fake-api.vercel.app/efood/bella_tavola_italiana//capa.jpeg',
-    descricao:
-      'A paixão dos nossos talentosos chefs pela cozinha italiana é evidente em cada prato, desde massas caseiras e risotos cremosos até suculentos frutos do mar e carnes tenras. Nosso menu é complementado por uma excelente carta de vinhos, cuidadosamente selecionados para harmonizar com a riqueza dos sabores italianos.',
-    tipo: 'italiana',
-    destacado: 'Destaque da Semana'
-  },
-  {
-    id: 2,
-    titulo: 'Bella Tavola Italiana',
-    avaliacao: 4.7,
-    capa: 'https://ebac-fake-api.vercel.app/efood/bella_tavola_italiana//capa.jpeg',
-    descricao:
-      'A paixão dos nossos talentosos chefs pela cozinha italiana é evidente em cada prato, desde massas caseiras e risotos cremosos até suculentos frutos do mar e carnes tenras. Nosso menu é complementado por uma excelente carta de vinhos, cuidadosamente selecionados para harmonizar com a riqueza dos sabores italianos.',
-    tipo: 'italiana',
-    destacado: 'Destaque da Semana'
-  },
-  {
-    id: 3,
-    titulo: 'Bella Tavola Italiana',
-    avaliacao: 4.7,
-    capa: 'https://ebac-fake-api.vercel.app/efood/bella_tavola_italiana//capa.jpeg',
-    descricao:
-      'A paixão dos nossos talentosos chefs pela cozinha italiana é evidente em cada prato, desde massas caseiras e risotos cremosos até suculentos frutos do mar e carnes tenras. Nosso menu é complementado por uma excelente carta de vinhos, cuidadosamente selecionados para harmonizar com a riqueza dos sabores italianos.',
-    tipo: 'italiana',
-    destacado: 'Destaque da Semana'
-  },
-  {
-    id: 4,
-    titulo: 'Bella Tavola Italiana',
-    avaliacao: 4.7,
-    capa: 'https://ebac-fake-api.vercel.app/efood/bella_tavola_italiana//capa.jpeg',
-    descricao:
-      'A paixão dos nossos talentosos chefs pela cozinha italiana é evidente em cada prato, desde massas caseiras e risotos cremosos até suculentos frutos do mar e carnes tenras. Nosso menu é complementado por uma excelente carta de vinhos, cuidadosamente selecionados para harmonizar com a riqueza dos sabores italianos.',
-    tipo: 'italiana',
-    destacado: 'Destaque da Semana'
-  }
-]
+export type RestaurantsType = {
+  id: number
+  titulo: string
+  destacado: boolean
+  tipo: string
+  avaliacao: number
+  descricao: string
+  capa: string
+  cardapio: ProductType[]
+}
+
+export type ProductType = {
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
+}
 
 const Home = () => {
+  const [restaurants, setRestaurants] = useState<RestaurantsType[]>([])
+
+  useEffect(() => {
+    fetch('https://ebac-fake-api.vercel.app/api/efood/restaurantes')
+      .then((res) => res.json())
+      .then((res) => setRestaurants(res))
+  }, [])
+
   return (
     <div>
       <Header variant="home" />

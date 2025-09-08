@@ -12,7 +12,7 @@ import {
 type Props = {
   id: number
   titulo: string
-  destacado?: string
+  destacado?: boolean
   tipo: string
   avaliacao: number
   descricao: string
@@ -33,6 +33,7 @@ const Restaurants = ({
   destacado
 }: Props) => {
   const navigate = useNavigate()
+
   return (
     <RestaurantsItens>
       <img src={capa} alt={titulo} />
@@ -44,9 +45,9 @@ const Restaurants = ({
         </Assessment>
       </Title>
       <Description>
-        <span>{descricao}</span>
+        <p>{descricao}</p>
         <Button
-          onClick={() => navigate('/restaurante')}
+          onClick={() => navigate(`/restaurante/${id}`)}
           type="link"
           title="Saiba Mais"
         >
@@ -54,7 +55,7 @@ const Restaurants = ({
         </Button>
       </Description>
       <div>
-        <Badge position="left">{destacado}</Badge>
+        {destacado && <Badge position="left">Destaque da Semana</Badge>}
         <Badge position="right">{tipo}</Badge>
       </div>
     </RestaurantsItens>

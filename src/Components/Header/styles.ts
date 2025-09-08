@@ -31,18 +31,6 @@ export const Title = styled.h1`
   text-align: center;
 `
 
-// export const ContainerRestaurant = styled.div`
-//   display: flex;
-//   justify-content: space-around;
-//   width: 100vw;
-
-//   align-items: center;
-
-//   img {
-//     margin: 0;
-//   }
-// `
-
 export const ContainerRestaurant = styled.div`
   padding: 8px;
 

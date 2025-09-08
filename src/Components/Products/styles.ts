@@ -43,21 +43,67 @@ export const ProductDescription = styled.p`
   line-height: 1.5;
 `
 
-// export const AddButton = styled.button`
-//   width: 100%;
-//   padding: 12px;
-//   background-color: ${cores.branco};
-//   color: ${cores.vermelho};
-//   border: none;
-//   border-radius: 6px;
-//   border: 2px solid transparent;
-//   font-weight: bold;
-//   cursor: pointer;
-//   transition: 0.2s ease;
+export const Modal = styled.div`
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: 1024px;
+  height: 340px;
+  z-index: 1;
+  background-color: ${cores.vermelho};
 
-//   &:hover {
-//     background-color: ${cores.vermelho};
-//     color: ${cores.branco};
-//     border: 2px solid ${cores.branco};
-//   }
-// `
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.73);
+  }
+`
+
+export const ModalContent = styled.header`
+  display: flex;
+  padding: 24px;
+
+  img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+  }
+`
+
+export const ModalDetails = styled.div`
+  display: flex;
+  padding: 15px;
+  flex-direction: column;
+  position: relative;
+
+  h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: ${cores.branco};
+  }
+
+  p {
+    margin: 24px 0;
+    font-weight: bold;
+    color: ${cores.branco};
+  }
+
+  img {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+`
+
+export const Overlay = styled.div`
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.73);
+  z-index: 1;
+`

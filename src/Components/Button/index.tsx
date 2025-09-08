@@ -3,7 +3,7 @@ import { ButtonLink, SecondaryButton } from './styles'
 export type Props = {
   type: 'link' | 'button'
   title: string
-  to?: string
+  to?: string | null
   onClick?: () => void
   children: string
 }

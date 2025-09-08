@@ -13,14 +13,17 @@ export const RestaurantsItens = styled.div`
   img {
     width: 100%;
     object-fit: cover;
+    height: 300px;
   }
 `
 
 export const Description = styled.div`
   padding: 8px;
 
-  span {
-    margin: 12px 0;
+  p {
+    height: 120px;
+    font-weight: bold;
+    margin: 8px 0;
   }
 `
 export const Title = styled.div`
@@ -49,5 +52,5 @@ export const Badge = styled.span<Props>`
   position: absolute;
   top: 6px;
 
-  ${(props) => (props.position === 'left' ? 'left: 225px;' : 'right: 10px;')}
+  ${(props) => (props.position === 'left' ? 'left: 10px; ' : 'right: 10px;')}
 `

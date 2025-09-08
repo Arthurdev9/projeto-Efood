@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 
 type Props = {
-  image: string
+  image?: string
 }
 
 export const Banner = styled.div<Props>`
@@ -13,7 +13,7 @@ export const Banner = styled.div<Props>`
 
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(${(props) => props.image});
+    url(${(props) => props.image || ''});
 `
 
 export const Type = styled.p`
@@ -27,4 +27,9 @@ export const Assessment = styled.h3`
   font-weight: bold;
   color: ${cores.branco};
   padding-top: 90px;
+
+  img {
+    margin-left: 8px;
+    width: 25px;
+  }
 `
