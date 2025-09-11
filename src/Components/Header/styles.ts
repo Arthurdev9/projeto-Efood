@@ -44,6 +44,12 @@ export const NavList = styled.ul`
   justify-content: space-around;
   align-items: center;
   width: 100vw;
+
+  li {
+    h2 {
+      cursor: pointer;
+    }
+  }
 `
 
 export const NavLink = styled(Link)`

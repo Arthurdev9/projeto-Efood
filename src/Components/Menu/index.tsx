@@ -1,26 +1,15 @@
 import { useParams } from 'react-router-dom'
-import ProductsItens from '../../models/ProductsItens'
 import Products from '../Products'
 import { Assessment, Banner, Type } from './styles'
-import { useEffect, useState } from 'react'
-import { ProductType, RestaurantsType } from '../../pages/Home'
+import { RestaurantsType } from '../../pages/Home'
 
 import star from '../../assets/images/estrela.png'
-
-type Product = {
-  cardapio: RestaurantsType[]
-}
+import { useGetProductsQuery } from '../../services/api'
 
 const Menu = () => {
   const { id } = useParams()
 
-  const [productsData, setProductsData] = useState<RestaurantsType>()
-
-  useEffect(() => {
-    fetch(`https://ebac-fake-api.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setProductsData(res))
-  }, [])
+  const { data: productsData } = useGetProductsQuery(id!)
 
   if (!productsData) {
     return <h3>Carregando...</h3>

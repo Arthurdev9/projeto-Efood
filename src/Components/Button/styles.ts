@@ -31,6 +31,7 @@ export const SecondaryButton = styled.button`
   background-color: ${cores.branco};
   cursor: pointer;
   width: 100%;
+  transition: ease-in-out 0.2s;
 
   &:hover {
     background-color: ${cores.vermelho};

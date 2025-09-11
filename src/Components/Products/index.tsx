@@ -14,6 +14,8 @@ import {
 
 import close from '../../assets/images/close.png'
 import { ProductType } from '../../pages/Home'
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/cart'
 
 export type Props = {
   products: ProductType[]
@@ -32,6 +34,17 @@ export const formataPreco = (preco = 0) => {
 }
 
 const Products = ({ products }: Props) => {
+  const dispatch = useDispatch()
+
+  const cartOpen = () => {
+    dispatch(open())
+  }
+
+  const handleAddToCart = () => {
+    dispatch(add(modal.product!))
+    dispatch(open())
+  }
+
   const [modal, setModal] = useState<ModalState>({
     isVisible: false,
     product: null
@@ -82,7 +95,11 @@ const Products = ({ products }: Props) => {
                 <h4>{modal.product.nome}</h4>
                 <p>{modal.product.porcao}</p>
                 <p>{modal.product.descricao}</p>
-                <Button type="button" title="Adicionar ao carrinho">
+                <Button
+                  type="button"
+                  title="Adicionar ao carrinho"
+                  onClick={handleAddToCart}
+                >
                   {`Adicionar ao carrinho ${formataPreco(modal.product.preco)}`}
                 </Button>
                 <img
