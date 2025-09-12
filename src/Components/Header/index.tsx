@@ -2,7 +2,7 @@ import { ContainerRestaurant, Image, NavList, Title, NavLink } from './styles'
 
 import backgroundImg from '../../assets/images/fundo.png'
 import logo from '../../assets/images/logo (1).png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { useDispatch } from 'react-redux'
@@ -23,6 +23,7 @@ const Header = ({
 }: HeaderProps) => {
   const dispatch = useDispatch()
   const { items } = useSelector((state: RootReducer) => state.cart)
+  const navigate = useNavigate()
 
   const openCart = () => {
     dispatch(open())
@@ -57,7 +58,7 @@ const Header = ({
                   <NavLink to="/">Restaurantes</NavLink>
                 </li>
                 <li>
-                  <img src={logo} alt="Efood" />
+                  <img src={logo} alt="Efood" onClick={() => navigate('/')} />
                 </li>
                 <li>
                   <h2 onClick={openCart}>

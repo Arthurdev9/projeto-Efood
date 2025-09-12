@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const ProductsContainer = styled.div`
   display: grid;
@@ -8,6 +8,14 @@ export const ProductsContainer = styled.div`
   padding: 40px;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: ${breakpoints.tablet}) and (max-width: ${breakpoints.desktop}) {
+    grid-template-columns: 1fr 1fr;
+  }
 `
 
 export const ProductCard = styled.div`
@@ -47,7 +55,7 @@ export const Modal = styled.div`
   position: fixed;
   inset: 0;
   margin: auto;
-  width: 1024px;
+  width: 960px;
   height: 340px;
   z-index: 1;
   background-color: ${cores.vermelho};
@@ -60,6 +68,29 @@ export const Modal = styled.div`
     height: 100%;
     background-color: rgba(0, 0, 0, 0.73);
   }
+
+  .close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      top: 4px;
+      right: 4px;
+    }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 80%;
+    height: 620px;
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 100%;
+  }
 `
 
 export const ModalContent = styled.header`
@@ -70,6 +101,19 @@ export const ModalContent = styled.header`
     width: 280px;
     height: 280px;
     object-fit: cover;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      width: 80vw;
+      height: auto;
+      padding-top: 8px;
+    }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
   }
 `
 

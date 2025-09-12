@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { breakpoints } from '../../styles'
 
 type ImageProps = {
   variant?: 'home' | 'restaurant'
@@ -12,6 +13,7 @@ export const Image = styled.header<ImageProps>`
   background-size: cover;
   padding: 40px;
   overflow-x: hidden;
+  overflow-y: hidden;
 
   .container {
     display: flex;
@@ -29,10 +31,18 @@ export const Title = styled.h1`
   font-weight: bold;
   font-size: 36px;
   text-align: center;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 28px;
+  }
 `
 
 export const ContainerRestaurant = styled.div`
   padding: 8px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 0;
+  }
 
   img {
     margin: 0;
@@ -48,7 +58,14 @@ export const NavList = styled.ul`
   li {
     h2 {
       cursor: pointer;
+      font-size: 20px;
     }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
   }
 `
 

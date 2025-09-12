@@ -89,6 +89,12 @@ const Products = ({ products }: Props) => {
         <>
           <Overlay className="overlay" onClick={() => closeModal()}></Overlay>
           <Modal className="visible">
+            <img
+              className="close-button"
+              src={close}
+              alt="Ícone de Fechar"
+              onClick={() => closeModal()}
+            />
             <ModalContent>
               <img src={modal.product.foto} />
               <ModalDetails>
@@ -102,11 +108,6 @@ const Products = ({ products }: Props) => {
                 >
                   {`Adicionar ao carrinho ${formataPreco(modal.product.preco)}`}
                 </Button>
-                <img
-                  src={close}
-                  alt="Ícone de Fechar"
-                  onClick={() => closeModal()}
-                />
               </ModalDetails>
             </ModalContent>
           </Modal>

@@ -19,6 +19,7 @@ export const Image = styled.footer`
 export const Description = styled.p`
   font-size: 14px;
   text-align: center;
+  margin-bottom: 8px;
 `
 
 export const ContainerImg = styled.div`

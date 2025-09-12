@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 import { SecondaryButton } from '../Button/styles'
 
 export const CartContainer = styled.div`
@@ -47,6 +47,10 @@ export const SideBar = styled.aside`
 
   ${SecondaryButton} {
     padding: 4px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 300px;
   }
 `
 
