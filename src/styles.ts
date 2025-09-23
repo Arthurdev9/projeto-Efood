@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
 
-export const cores = {
-  vermelho: '#E66767',
-  branco: '#FFEBD9',
-  azul: '#67A7E6'
+export const colors = {
+  red: '#E66767',
+  white: '#FFEBD9',
+  blue: '#67A7E6'
 }
 
 export const breakpoints = {
@@ -19,7 +19,7 @@ export const GlobalCss = createGlobalStyle`
     font-family: "Roboto", sans-serif;
     list-style: none;
     text-decoration: none;
-    color: ${cores.vermelho};
+    color: ${colors.red};
   }
 
   .container {

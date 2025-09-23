@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 type Props = {
   image?: string
@@ -18,14 +18,14 @@ export const Banner = styled.div<Props>`
 
 export const Type = styled.p`
   font-size: 32px;
-  color: ${cores.branco};
+  color: ${colors.white};
   font-weight: 100;
 `
 
 export const Assessment = styled.h3`
   font-size: 32px;
   font-weight: bold;
-  color: ${cores.branco};
+  color: ${colors.white};
   padding-top: 90px;
 
   img {

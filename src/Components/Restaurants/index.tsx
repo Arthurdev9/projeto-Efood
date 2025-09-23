@@ -1,13 +1,9 @@
-import { useNavigate } from 'react-router-dom'
-import estrela from '../../assets/images/estrela.png'
 import Button from '../Button'
-import {
-  Assessment,
-  Badge,
-  Description,
-  RestaurantsItens,
-  Title
-} from './styles'
+
+import * as S from './styles'
+import star from '../../assets/images/estrela.png'
+
+import { useNavigate } from 'react-router-dom'
 
 type Props = {
   id: number
@@ -17,10 +13,6 @@ type Props = {
   avaliacao: number
   descricao: string
   capa: string
-}
-
-type PropsSpan = {
-  position?: 'left' | 'right'
 }
 
 const Restaurants = ({
@@ -35,16 +27,16 @@ const Restaurants = ({
   const navigate = useNavigate()
 
   return (
-    <RestaurantsItens>
+    <S.RestaurantsItens>
       <img src={capa} alt={titulo} />
-      <Title>
+      <S.Title>
         <h3>{titulo}</h3>
-        <Assessment>
+        <S.Assessment>
           <h3>{avaliacao}</h3>
-          <img src={estrela} alt="Estrela" />
-        </Assessment>
-      </Title>
-      <Description>
+          <img src={star} alt="Estrela" />
+        </S.Assessment>
+      </S.Title>
+      <S.Description>
         <p>{descricao}</p>
         <Button
           onClick={() => navigate(`/restaurante/${id}`)}
@@ -53,12 +45,12 @@ const Restaurants = ({
         >
           Saiba mais
         </Button>
-      </Description>
+      </S.Description>
       <div>
-        {destacado && <Badge position="left">Destaque da Semana</Badge>}
-        <Badge position="right">{tipo}</Badge>
+        {destacado && <S.Badge position="left">Destaque da Semana</S.Badge>}
+        <S.Badge position="right">{tipo}</S.Badge>
       </div>
-    </RestaurantsItens>
+    </S.RestaurantsItens>
   )
 }
 

@@ -1,15 +1,17 @@
-import { RestaurantsType } from '../../pages/Home'
 import Restaurants from '../Restaurants'
+
 import { ContainerGrid } from './styles'
 
+import { RestaurantsType } from '../../../types'
+
 export type Props = {
-  restaurantes: RestaurantsType[]
+  restaurantsData: RestaurantsType[]
 }
 
-const RestaurantsList = ({ restaurantes }: Props) => {
+const RestaurantsList = ({ restaurantsData }: Props) => {
   return (
     <ContainerGrid>
-      {restaurantes.map((res) => (
+      {restaurantsData.map((res) => (
         <li key={res.id}>
           <Restaurants
             id={res.id}

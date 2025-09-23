@@ -1,19 +1,10 @@
-import { useState } from 'react'
 import Button from '../Button'
-import {
-  Modal,
-  ModalContent,
-  ModalDetails,
-  Overlay,
-  ProductCard,
-  ProductDescription,
-  ProductImage,
-  ProductsContainer,
-  ProductTitle
-} from './styles'
 
+import * as S from './styles'
 import close from '../../assets/images/close.png'
-import { ProductType } from '../../pages/Home'
+
+import { useState } from 'react'
+import { ProductType } from '../../../types'
 import { useDispatch } from 'react-redux'
 import { add, open } from '../../store/reducers/cart'
 
@@ -26,7 +17,7 @@ interface ModalState {
   product?: ProductType | null
 }
 
-export const formataPreco = (preco = 0) => {
+export const formatPrice = (preco = 0) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
@@ -35,10 +26,6 @@ export const formataPreco = (preco = 0) => {
 
 const Products = ({ products }: Props) => {
   const dispatch = useDispatch()
-
-  const cartOpen = () => {
-    dispatch(open())
-  }
 
   const handleAddToCart = () => {
     dispatch(add(modal.product!))
@@ -67,14 +54,14 @@ const Products = ({ products }: Props) => {
 
   return (
     <>
-      <ProductsContainer>
+      <S.ProductsContainer>
         {products.map((product) => (
-          <ProductCard key={product.id}>
-            <ProductImage src={product.foto} alt={product.nome} />
-            <ProductTitle>{product.nome}</ProductTitle>
-            <ProductDescription>
+          <S.ProductCard key={product.id}>
+            <S.ProductImage src={product.foto} alt={product.nome} />
+            <S.ProductTitle>{product.nome}</S.ProductTitle>
+            <S.ProductDescription>
               {getDescricao(product.descricao)}
-            </ProductDescription>
+            </S.ProductDescription>
             <Button
               type="button"
               title="Adicionar ao carrinho"
@@ -82,22 +69,25 @@ const Products = ({ products }: Props) => {
             >
               Ver Prato
             </Button>
-          </ProductCard>
+          </S.ProductCard>
         ))}
-      </ProductsContainer>
+      </S.ProductsContainer>
       {modal.isVisible && modal.product && (
         <>
-          <Overlay className="overlay" onClick={() => closeModal()}></Overlay>
-          <Modal className="visible">
+          <S.Overlay
+            className="overlay"
+            onClick={() => closeModal()}
+          ></S.Overlay>
+          <S.Modal className="visible">
             <img
               className="close-button"
               src={close}
               alt="Ícone de Fechar"
               onClick={() => closeModal()}
             />
-            <ModalContent>
-              <img src={modal.product.foto} />
-              <ModalDetails>
+            <S.ModalContent>
+              <img src={modal.product.foto} alt={modal.product.nome} />
+              <S.ModalDetails>
                 <h4>{modal.product.nome}</h4>
                 <p>{modal.product.porcao}</p>
                 <p>{modal.product.descricao}</p>
@@ -106,11 +96,11 @@ const Products = ({ products }: Props) => {
                   title="Adicionar ao carrinho"
                   onClick={handleAddToCart}
                 >
-                  {`Adicionar ao carrinho ${formataPreco(modal.product.preco)}`}
+                  {`Adicionar ao carrinho ${formatPrice(modal.product.preco)}`}
                 </Button>
-              </ModalDetails>
-            </ModalContent>
-          </Modal>
+              </S.ModalDetails>
+            </S.ModalContent>
+          </S.Modal>
         </>
       )}
     </>

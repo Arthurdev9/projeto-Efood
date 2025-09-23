@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { ButtonLink } from '../Button/styles'
 
 export type Props = {
@@ -8,10 +8,13 @@ export type Props = {
 
 export const RestaurantsItens = styled.div`
   width: 470px;
-  border: 1px solid ${cores.vermelho};
+  border: 1px solid ${colors.red};
   position: relative;
   max-height: 530px;
   height: 100%;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 8px 16px rgba(0, 0, 0, 0.15);
 
   @media (max-width: ${breakpoints.tablet}) {
     max-width: 320px;
@@ -73,9 +76,9 @@ export const Assessment = styled.div`
 `
 
 export const Badge = styled.span<Props>`
-  background-color: ${cores.vermelho};
+  background-color: ${colors.red};
   font-weight: 500;
-  color: ${cores.branco};
+  color: ${colors.white};
   padding: 5px;
   position: absolute;
   top: 6px;

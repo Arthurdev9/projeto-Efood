@@ -24,6 +24,7 @@ export const Image = styled.header<ImageProps>`
 
   img {
     margin-bottom: 8rem;
+    cursor: pointer;
   }
 `
 
@@ -53,12 +54,15 @@ export const NavList = styled.ul`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100vw;
 
   li {
+    display: flex;
+    width: 100%;
+    justify-content: center;
     h2 {
       cursor: pointer;
       font-size: 20px;
+      max-width: 100%;
     }
   }
 

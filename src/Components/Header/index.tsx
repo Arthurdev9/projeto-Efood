@@ -1,8 +1,9 @@
-import { ContainerRestaurant, Image, NavList, Title, NavLink } from './styles'
+import * as S from './styles'
 
 import backgroundImg from '../../assets/images/fundo.png'
 import logo from '../../assets/images/logo (1).png'
-import { Link, useNavigate } from 'react-router-dom'
+
+import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { useDispatch } from 'react-redux'
@@ -29,46 +30,49 @@ const Header = ({
     dispatch(open())
   }
 
+  const totalItems = items.reduce((acc, item) => acc + item.quantity, 0)
+
   return (
     <>
       {variant === 'home' && (
-        <Image
+        <S.Image
           variant="home"
           style={{ backgroundImage: `url(${backgroundImg})` }}
         >
           <div className="container">
             <img src={logo} alt="Efood" />
-            <Title>
+            <S.Title>
               Viva experiências gastronômicas
               <br /> no conforto da sua casa
-            </Title>
+            </S.Title>
           </div>
-        </Image>
+        </S.Image>
       )}
 
       {variant === 'restaurant' && (
-        <Image
+        <S.Image
           variant="restaurant"
           style={{ backgroundImage: `url(${backgroundImg})` }}
         >
-          <ContainerRestaurant>
+          <S.ContainerRestaurant>
             <nav>
-              <NavList>
+              <S.NavList>
                 <li>
-                  <NavLink to="/">Restaurantes</NavLink>
+                  <S.NavLink to="/">Restaurantes</S.NavLink>
                 </li>
                 <li>
                   <img src={logo} alt="Efood" onClick={() => navigate('/')} />
                 </li>
                 <li>
                   <h2 onClick={openCart}>
-                    {items.length} produtos no carrinho
+                    {totalItems} produto{totalItems !== 1 ? 's' : ''} no
+                    carrinho
                   </h2>
                 </li>
-              </NavList>
+              </S.NavList>
             </nav>
-          </ContainerRestaurant>
-        </Image>
+          </S.ContainerRestaurant>
+        </S.Image>
       )}
 
       {showCart && <button>🛒 Ver carrinho</button>}

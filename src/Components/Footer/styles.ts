@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
 
 export const Image = styled.footer`
   width: 100%;

@@ -1,16 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ProductType } from '../../pages/Home'
+import { ProductType } from '../../../types'
 
 type CartItem = ProductType & { quantity: number }
 
 type CartType = {
   items: CartItem[]
   isOpen: boolean
+  isOrder: boolean
+  isPayment: boolean
 }
 
 const initialState: CartType = {
   items: [],
-  isOpen: false
+  isOpen: false,
+  isOrder: false,
+  isPayment: false
 }
 
 const cartSlice = createSlice({
@@ -46,9 +50,36 @@ const cartSlice = createSlice({
           state.items.splice(itemIndex, 1)
         }
       }
+    },
+
+    openOrder: (state) => {
+      state.isOrder = true
+    },
+    closeOrder: (state) => {
+      state.isOrder = false
+    },
+    openPayment: (state) => {
+      state.isPayment = true
+    },
+    closePayment: (state) => {
+      state.isPayment = false
+    },
+    clear: (state) => {
+      state.items = []
     }
   }
 })
 
-export const { add, close, open, removeProduct } = cartSlice.actions
+export const {
+  add,
+  close,
+  open,
+  removeProduct,
+  openOrder,
+  closeOrder,
+  openPayment,
+  closePayment,
+  clear
+} = cartSlice.actions
+
 export default cartSlice.reducer

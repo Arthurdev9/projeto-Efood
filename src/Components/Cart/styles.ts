@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { SecondaryButton } from '../Button/styles'
 
 export const CartContainer = styled.div`
@@ -35,7 +35,7 @@ export const SideBar = styled.aside`
   width: 100%;
   height: 100%;
   padding: 12px;
-  background-color: ${cores.vermelho};
+  background-color: ${colors.red};
   overflow-y: auto;
   z-index: 2;
   transform: translateX(100%);
@@ -47,6 +47,15 @@ export const SideBar = styled.aside`
 
   ${SecondaryButton} {
     padding: 4px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: ${colors.white};
+    display: flex;
+    margin-top: 16px;
+    justify-content: center;
+    font-weight: bold;
   }
 
   @media (max-width: ${breakpoints.tablet}) {
@@ -57,6 +66,7 @@ export const SideBar = styled.aside`
 export const Price = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 24px 0px;
   padding: 16px;
 
@@ -65,13 +75,14 @@ export const Price = styled.div`
   p {
     font-weight: bold;
     font-size: 14px;
-    color: ${cores.branco};
+    color: ${colors.white};
   }
 
   span {
     font-weight: bold;
     font-size: 14px;
-    color: ${cores.branco};
+    color: ${colors.white};
+    margin-top: 16px;
   }
 `
 
@@ -90,13 +101,15 @@ export const ListItemContainer = styled.div`
   }
 
   p {
+    color: ${colors.red};
+    justify-content: flex-start;
     margin: 8px 0;
   }
 `
 
 export const List = styled.li`
   display: flex;
-  background-color: ${cores.branco};
+  background-color: ${colors.white};
   padding: 8px;
   margin-bottom: 8px;
   border-radius: 4px;
@@ -128,5 +141,60 @@ export const QuantityProducts = styled.div`
     justify-content: center;
     font-weight: bold;
     min-width: 20px;
+  }
+`
+
+export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  label {
+    color: ${colors.white};
+    margin: 12px 0;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  input {
+    border: none;
+    padding: 6px;
+  }
+`
+
+export const InputInline = styled.div`
+  display: flex;
+  gap: 12px;
+
+  div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    display: block;
+  }
+`
+
+export const PaymentGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+  }
+`
+
+export const Success = styled.div`
+  h4 {
+    color: ${colors.white};
+  }
+  p {
+    color: ${colors.white};
+    margin: 16px 0;
   }
 `

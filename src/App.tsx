@@ -1,11 +1,12 @@
-import { BrowserRouter } from 'react-router-dom'
+import Cart from './Components/Cart'
 import Footer from './Components/Footer'
 
-import Rotas from './routes'
 import { GlobalCss } from './styles'
+
+import { BrowserRouter } from 'react-router-dom'
+import Rotas from './routes'
 import { Provider } from 'react-redux'
 import { store } from './store'
-import Cart from './Components/Cart'
 
 function App() {
   return (

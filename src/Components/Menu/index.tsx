@@ -1,9 +1,10 @@
-import { useParams } from 'react-router-dom'
 import Products from '../Products'
-import { Assessment, Banner, Type } from './styles'
-import { RestaurantsType } from '../../pages/Home'
+import Loader from '../Loader'
 
+import * as S from './styles'
 import star from '../../assets/images/estrela.png'
+
+import { useParams } from 'react-router-dom'
 import { useGetProductsQuery } from '../../services/api'
 
 const Menu = () => {
@@ -12,18 +13,18 @@ const Menu = () => {
   const { data: productsData } = useGetProductsQuery(id!)
 
   if (!productsData) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   return (
     <div>
-      <Banner image={productsData?.capa}>
-        <Type>{productsData?.tipo}</Type>
-        <Assessment>
+      <S.Banner image={productsData?.capa}>
+        <S.Type>{productsData?.tipo}</S.Type>
+        <S.Assessment>
           {productsData?.titulo} {productsData?.avaliacao}
           <img src={star} alt="Estrela" />
-        </Assessment>
-      </Banner>
+        </S.Assessment>
+      </S.Banner>
       {productsData && <Products products={productsData.cardapio} />}
     </div>
   )

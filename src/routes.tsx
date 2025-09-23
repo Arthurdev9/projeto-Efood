@@ -1,6 +1,7 @@
-import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import RestaurantSelected from './pages/RestaurantSelected'
+
+import { Route, Routes } from 'react-router-dom'
 
 const Rotas = () => {
   return (

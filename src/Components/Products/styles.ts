@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const ProductsContainer = styled.div`
   display: grid;
@@ -19,7 +19,7 @@ export const ProductsContainer = styled.div`
 `
 
 export const ProductCard = styled.div`
-  background-color: ${cores.vermelho};
+  background-color: ${colors.red};
   border-radius: 8px;
   padding: 18px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -41,12 +41,12 @@ export const ProductImage = styled.img`
 export const ProductTitle = styled.h4`
   font-size: 18px;
   margin-bottom: 8px;
-  color: ${cores.branco};
+  color: ${colors.white};
 `
 
 export const ProductDescription = styled.p`
   font-size: 14px;
-  color: ${cores.branco};
+  color: ${colors.white};
   margin-bottom: 16px;
   line-height: 1.5;
 `
@@ -58,7 +58,7 @@ export const Modal = styled.div`
   width: 960px;
   height: 340px;
   z-index: 1;
-  background-color: ${cores.vermelho};
+  background-color: ${colors.red};
 
   .overlay {
     position: absolute;
@@ -126,13 +126,13 @@ export const ModalDetails = styled.div`
   h4 {
     font-size: 18px;
     font-weight: bold;
-    color: ${cores.branco};
+    color: ${colors.white};
   }
 
   p {
     margin: 24px 0;
     font-weight: bold;
-    color: ${cores.branco};
+    color: ${colors.white};
   }
 
   img {
