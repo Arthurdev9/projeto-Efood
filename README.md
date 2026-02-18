@@ -1,46 +1,51 @@
-# Getting Started with Create React App
+🍔 Projeto E-food
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicação web de e-commerce para restaurantes, com catálogo de produtos, carrinho de compras e fluxo completo de checkout para o usuário. O sistema permite navegar por diferentes restaurantes e pratos, adicionar itens ao carrinho e finalizar pedidos de forma simples e intuitiva, com layout totalmente responsivo para mobile, tablet e desktop.
 
-## Available Scripts
+🚀 Tecnologias utilizadas
 
-In the project directory, you can run:
+React
 
-### `npm start`
+TypeScript
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Styled Components
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Redux
 
-### `npm test`
+Redux Toolkit Query
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Formik
 
-### `npm run build`
+✨ Funcionalidades
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Catálogo de produtos por categorias
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Interface responsiva para todos os dispositivos
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Carrinho de compras com controle de quantidade
 
-### `npm run eject`
+Cálculo automático de totais
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Formulário de checkout com validação
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Consumo de API com Redux Toolkit Query
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Gerenciamento global de estado com Redux
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+📱 Responsividade
 
-## Learn More
+O layout foi desenvolvido com foco em experiência do usuário, adaptando-se a diferentes tamanhos de tela, desde smartphones até monitores maiores.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🧠 Aprendizados
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Este projeto foi desenvolvido com foco em:
+
+Organização de estado global com Redux
+
+Consumo de API com RTK Query
+
+Validação de formulários com Formik
+
+Componentização e reutilização de estilos
+
+Boas práticas com TypeScript em aplicações React
